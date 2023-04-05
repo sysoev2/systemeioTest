@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CountryTaxCodeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 #[ORM\Entity(repositoryClass: CountryTaxCodeRepository::class)]
 class CountryTaxCode
@@ -14,12 +15,15 @@ class CountryTaxCode
     private ?int $id = null;
 
     #[ORM\Column(length: 16)]
+    #[NotBlank]
     private ?string $code = null;
 
     #[ORM\Column(length: 255)]
+    #[NotBlank]
     private ?string $country = null;
 
     #[ORM\Column]
+    #[NotBlank]
     private ?int $tax = null;
 
     public function getId(): ?int
